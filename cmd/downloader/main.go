@@ -6,7 +6,7 @@ import (
 	"os"
 	"sync"
 
-	"github.com/udaymungalpara/internal/downloader"
+	"github.com/udaymungalpara/Smart-Downloader-CLI/internal/downloader"
 )
 
 func main() {
@@ -28,6 +28,6 @@ func main() {
 		go downloader.Download(url, &wg)
 
 	}
-	wg.Wait()
+	wg.Wait()s
 
 }
