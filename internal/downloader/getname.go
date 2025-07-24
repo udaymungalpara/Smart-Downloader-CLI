@@ -10,12 +10,13 @@ import (
 
 func Getname(Url string) string {
 
-	resp, err := http.Get(Url)
-	if err != nil || resp == nil {
+	req, err := http.NewRequest("HEAD",Url,nil)
+	if err != nil{
 		fmt.Println("Initial GET failed for filename extraction:", err)
 		return "download.tmp.part"
 	}
-	defer resp.Body.Close()
+	client := http.Client{}
+	resp,err:=client.Do(req)
 
 	cd := resp.Header.Get("Content-Disposition")
 	if cd != "" {
