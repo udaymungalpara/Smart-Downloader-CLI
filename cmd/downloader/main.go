@@ -28,6 +28,6 @@ func main() {
 		go downloader.Download(url, &wg)
 
 	}
-	wg.Wait()s
+	wg.Wait()
 
 }
