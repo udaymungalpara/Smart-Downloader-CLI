@@ -1,3 +1,1 @@
-https://httpbin.org/image/png
-https://httpbin.org/image/jpeg
-https://httpbin.org/response-headers?Content-Disposition=attachment%3B%20filename%3D%22testfile.txt%22
+https://cdn.pixabay.com/video/2024/08/16/226795_large.mp4
