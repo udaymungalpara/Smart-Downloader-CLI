@@ -1,4 +1,4 @@
-module github.com/udaymungalpara
+module github.com/udaymungalpara/Smart-Downloader-CLI
 
 go 1.24.4
 
