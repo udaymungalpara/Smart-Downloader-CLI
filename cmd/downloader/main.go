@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	source, _ := os.Open("urls.txt")
+	source, _ := os.Open("./urls.txt")
 	if source == nil {
 		log.Fatal("No urls found in urls.txt")
 	}

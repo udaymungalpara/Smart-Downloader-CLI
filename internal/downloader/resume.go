@@ -32,10 +32,18 @@ func Resume(Url string, offset int64, filename string) (err error) {
 		"resuming",
 	)
 
-	_, errr := io.Copy(io.MultiWriter(bar, file), resp.Body)
-	if errr == nil {
-		os.Rename(filename, strings.TrimSuffix(filename, ".part"))
-	}
+	write, errr := io.Copy(io.MultiWriter(bar, file), resp.Body)
+	defer func() {
+		file.Close() 
+		if errr == nil && write == resp.ContentLength {
+			final := strings.TrimSuffix(filename, ".part")
+			if err := os.Rename(filename, final); err != nil {
+				fmt.Println("Rename fail:", err)
+			} else {
+				fmt.Println("Resumed and saved:", final)
+			}
+		}
+	}()
 
 	return errr
 
