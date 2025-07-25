@@ -23,7 +23,7 @@ func main() {
 	for _, url := range urls {
 		wg.Add(1)
 
-		go downloader.fetch(url, &wg)
+		go downloader.fetch(url)
 
 	}
 	wg.Wait()
