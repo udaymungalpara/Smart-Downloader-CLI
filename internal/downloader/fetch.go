@@ -12,7 +12,7 @@ import (
 	"github.com/schollz/progressbar/v3"
 )
 
-func Download(Url string, wg *sync.WaitGroup) {
+func fetch(Url string, wg *sync.WaitGroup) {
 
 	defer wg.Done()
 	var err error

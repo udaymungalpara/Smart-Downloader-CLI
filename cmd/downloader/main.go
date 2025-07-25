@@ -5,8 +5,6 @@ import (
 	"log"
 	"os"
 	"sync"
-
-	"github.com/udaymungalpara/Smart-Downloader-CLI/internal/downloader"
 )
 
 func main() {
@@ -25,7 +23,7 @@ func main() {
 	for _, url := range urls {
 		wg.Add(1)
 
-		go downloader.Download(url, &wg)
+		go downloader.fetch(url, &wg)
 
 	}
 	wg.Wait()
